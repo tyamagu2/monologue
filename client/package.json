@@ -1,0 +1,27 @@
+{
+  "name": "monologue-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": ""
+  },
+  "author": "tyamagu2",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^5.8.3",
+    "babel-loader": "^5.3.2",
+    "gulp": "^3.9.0",
+    "gulp-cached": "^1.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-pleeease": "^1.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.2",
+    "gulp-webpack": "^1.5.0",
+    "webpack": "^1.10.5"
+  },
+  "dependencies": {
+    "flux": "^2.0.3",
+    "react": "^0.13.3"
+  }
+}
