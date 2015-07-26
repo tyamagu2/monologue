@@ -1,6 +1,6 @@
 import React from 'react';
 import MonologueApp from './components/MonologueApp';
-window.React = React;
+window.React = React; // export for dev tools
 
 React.render(
   <MonologueApp />,

@@ -2,13 +2,80 @@
 @import "base/base";
 @import "neat/neat";
 
-$threadSectionHeadingHeight: 60px;
-$threadSectionWidth: 35%;
-$messageFormHeight: 100px;
+$journalSectionWidth: 35%;
+$noteFormHeight: 100px;
 
 * {
   border: 0;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.monologue-app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.journal-list-wrapper {
+  position: absolute;
+  overflow: scroll;
+  top: 0;
+  left: 0;
+  width: $journalSectionWidth;
+  height: 100%;
+}
+
+.journal {
+  padding: 12px 14px 14px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+
+  &.active {
+    background-color: #efefff;
+    cursor: default;
+  }
+
+  &:hover {
+    background-color: #efefff;
+  }
+}
+
+.note-section {
+  position: absolute;
+  overflow: scroll;
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 100%;
+}
+
+.note-list {
+  position: absolute;
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  padding-bottom: $noteFormHeight;
+}
+
+.note {
+  height: 80px;
+}
+
+.note-form {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: $noteFormHeight;
+  border: solid 1px #aaa;
 }
