@@ -10,7 +10,10 @@ export default class NoteListItem extends React.Component {
 
     return (
       <li className="note">
-        {note.text}
+        <div className="note-time">
+          {note.created_at}
+        </div>
+        <div className="note-text">{note.text}</div>
       </li>
     );
   }
