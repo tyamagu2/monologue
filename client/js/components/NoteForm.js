@@ -27,7 +27,7 @@ export default class NoteForm extends React.Component {
   }
 
   _onKeyDown(e) {
-    if (e.keyCode !== ENTER_KEY_CODE || !e.ctrlKey) { return; }
+    if (e.keyCode !== ENTER_KEY_CODE) { return; }
 
     event.preventDefault();
 
