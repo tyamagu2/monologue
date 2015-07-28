@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var webpack = require('webpack-stream');
+var webpack = require('gulp-webpack');
 var sass = require('gulp-sass');
 var please = require('gulp-pleeease');
 var notify = require('gulp-notify');
