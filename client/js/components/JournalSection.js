@@ -22,7 +22,10 @@ export default class JournalSection extends React.Component {
   render() {
     return (
       <div className="journal-section">
-        <div className="journal-list-wrapper">
+        <div className="journal-section-header">
+          HEADER
+        </div>
+        <div className="journal-list-wrapper scroll-box">
           <ul className="journal-list">
             {this.state.journals.map(journal => (<JournalListItem key={journal.id} journal={journal} currentJournalId={this.state.currentJournalId} />))}
           </ul>

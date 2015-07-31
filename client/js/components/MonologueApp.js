@@ -1,6 +1,8 @@
 import React from 'react';
+import Navigation from './Navigation';
 import JournalSection from './JournalSection';
 import NoteSection from './NoteSection';
+import JournalInfoSection from './JournalInfoSection';
 
 export default class MonologueApp extends React.Component {
   constructor(...args) {
@@ -10,8 +12,12 @@ export default class MonologueApp extends React.Component {
   render() {
     return (
       <div className="monologue-app">
-        <JournalSection />
-        <NoteSection />
+        <Navigation />
+        <div className="main-container">
+          <JournalSection />
+          <NoteSection />
+          <JournalInfoSection />
+        </div>
       </div>
     );
   }

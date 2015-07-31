@@ -12,13 +12,15 @@ export default class NoteForm extends React.Component {
 
   render() {
     return (
-      <textarea
-        className="note-form"
-        name="note"
-        value={this.state.text}
-        onChange={this._onChange.bind(this)}
-        onKeyDown={this._onKeyDown.bind(this)}
-      />
+      <div className="note-form-container">
+        <textarea
+          className="note-form"
+          name="note"
+          value={this.state.text}
+          onChange={this._onChange.bind(this)}
+          onKeyDown={this._onKeyDown.bind(this)}
+        />
+      </div>
     );
   }
 

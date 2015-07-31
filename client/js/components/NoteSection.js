@@ -28,9 +28,12 @@ export default class NoteSection extends React.Component {
   render() {
     return (
       <div className="note-section">
-        <ul className="note-list" ref="noteList">
-          {this.state.notes.map(note => (<NoteListItem key={note.id} note={note} />))}
-        </ul>
+        <div className="note-section-header">NOTE TITLE</div>
+        <div className="note-list-wrapper scroll-box">
+          <ul className="note-list" ref="noteList">
+            {this.state.notes.map(note => (<NoteListItem key={note.id} note={note} />))}
+          </ul>
+        </div>
         <NoteForm journalId={this.state.journalId}/>
       </div>
     );

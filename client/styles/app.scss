@@ -2,8 +2,9 @@
 @import "base/base";
 @import "neat/neat";
 
-$journalSectionWidth: 35%;
-$noteFormHeight: 100px;
+@import "navigation";
+
+$navigation-height: 61px;
 
 * {
   border: 0;
@@ -22,60 +23,95 @@ html, body, #app {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
-.journal-list-wrapper {
+.main-container {
   position: absolute;
-  overflow: scroll;
   top: 0;
-  left: 0;
-  width: $journalSectionWidth;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-top: $navigation-height;
+
+  li {
+    height: 200px;
+  }
+}
+
+.scroll-box {
+  position: relative;
+  display: inline-block;
+  overflow-y: scroll;
+  width: 100%;
   height: 100%;
 }
 
-.journal {
-  padding: 12px 14px 14px;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
+.journal-section {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 100%;
 
-  &.active {
-    background-color: #efefff;
-    cursor: default;
+  $journal-section-header-height: 30px;
+
+  .journal-section-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: $journal-section-header-height;
+    z-index: 1;
+    background: #ccc;
   }
 
-  &:hover {
-    background-color: #efefff;
+  .journal-list-wrapper {
+    position: absolute;
+    top: 0;
+    padding-top: $journal-section-header-height;
   }
 }
 
 .note-section {
-  position: absolute;
-  overflow: scroll;
-  top: 0;
-  right: 0;
-  width: 65%;
+  position: relative;
+  display: inline-block;
+  width: 50%;
   height: 100%;
+
+  $note-section-header-height: 30px;
+  $note-form-container-height: 100px;
+
+  .note-section-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: $note-section-header-height;
+    z-index: 1;
+    background: #ccc;
+  }
+
+  .note-list-wrapper {
+    position: absolute;
+    top: 0;
+    padding: $note-section-header-height 0 $note-form-container-height;
+  }
+
+  .note-form-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: $note-form-container-height;
+    z-index: 1;
+
+    .note-form {
+      height: 100%;
+    }
+  }
 }
 
-.note-list {
-  position: absolute;
-  list-style: none;
-  height: 100%;
-  width: 100%;
-  overflow: scroll;
-  padding-bottom: $noteFormHeight;
+.note-time {
+  font-color: #888;
+  font-size: 12px;
 }
 
-.note {
-  height: 80px;
-}
-
-.note-form {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 0;
-  width: 100%;
-  height: $noteFormHeight;
-  border: solid 1px #aaa;
+.journal-info-section {
+  width: 25%;
 }
