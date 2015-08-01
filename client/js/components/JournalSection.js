@@ -23,7 +23,7 @@ export default class JournalSection extends React.Component {
     return (
       <div className="journal-section">
         <div className="journal-section-header">
-          HEADER
+          <button>New Journal</button>
         </div>
         <div className="journal-list-wrapper scroll-box">
           <ul className="journal-list">

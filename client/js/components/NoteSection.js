@@ -28,13 +28,13 @@ export default class NoteSection extends React.Component {
   render() {
     return (
       <div className="note-section">
-        <div className="note-section-header">NOTE TITLE</div>
+        <div className="note-section-header">{this.state.journal.title}</div>
         <div className="note-list-wrapper scroll-box">
           <ul className="note-list" ref="noteList">
             {this.state.notes.map(note => (<NoteListItem key={note.id} note={note} />))}
           </ul>
         </div>
-        <NoteForm journalId={this.state.journalId}/>
+        <NoteForm journalId={this.state.journal.id}/>
       </div>
     );
   }
@@ -42,7 +42,7 @@ export default class NoteSection extends React.Component {
   _getStateFromStore() {
     return {
       notes: NoteStore.getAllForCurrentJournal(),
-      journalId: JournalStore.getCurrentId()
+      journal: JournalStore.getCurrent()
     };
   }
 

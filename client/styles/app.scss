@@ -32,10 +32,6 @@ html, body, #app {
   width: 100%;
   height: 100%;
   padding-top: $navigation-height;
-
-  li {
-    height: 200px;
-  }
 }
 
 .scroll-box {
@@ -52,7 +48,10 @@ html, body, #app {
   width: 25%;
   height: 100%;
 
-  $journal-section-header-height: 30px;
+  $journal-section-header-height: 50px;
+  $journal-list-color: #505050;
+  $journal-list-color-dark: #222;;
+  $active-journal-color: #18ac9c;
 
   .journal-section-header {
     position: absolute;
@@ -60,13 +59,40 @@ html, body, #app {
     width: 100%;
     height: $journal-section-header-height;
     z-index: 1;
-    background: #ccc;
+    background: $journal-list-color;
+    border-bottom: solid 1px $journal-list-color-dark;
+
+    button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: #18ac9c;
+    }
   }
 
   .journal-list-wrapper {
     position: absolute;
     top: 0;
     padding-top: $journal-section-header-height;
+    background: $journal-list-color;
+  }
+
+  .journal {
+    height: 50px;
+    padding: 10px 0 0 10px;
+    background: $journal-list-color;
+    color: #fff;
+    border-bottom: solid 1px $journal-list-color-dark;
+    cursor: pointer;
+
+    &.active {
+      font-weight: bold;
+      background-color: $active-journal-color;
+    }
+
+    &:hover:not(.active) {
+      background-color: $journal-list-color-dark;
+    }
   }
 }
 
@@ -76,7 +102,7 @@ html, body, #app {
   width: 50%;
   height: 100%;
 
-  $note-section-header-height: 30px;
+  $note-section-header-height: 50px;
   $note-form-container-height: 100px;
 
   .note-section-header {
@@ -85,13 +111,34 @@ html, body, #app {
     width: 100%;
     height: $note-section-header-height;
     z-index: 1;
-    background: #ccc;
+    background: #fff;
+    padding: 3px 0 3px 10px;
+    font-weight: bold;
+    font-size: 26px;
   }
 
   .note-list-wrapper {
     position: absolute;
     top: 0;
-    padding: $note-section-header-height 0 $note-form-container-height;
+    padding: $note-section-header-height 0 $note-form-container-height 10px;
+
+    .note {
+      padding: 0 0 8px;
+    }
+
+    .note-time {
+      display: inline-block;
+      vertical-align: top;
+      padding-top: 5px;
+      width: 8%;
+      font-color: #888;
+      font-size: 12px;
+    }
+
+    .note-text {
+      display: inline-block;
+      width: 92%;
+    }
   }
 
   .note-form-container {
@@ -103,13 +150,9 @@ html, body, #app {
 
     .note-form {
       height: 100%;
+      resize: none;
     }
   }
-}
-
-.note-time {
-  font-color: #888;
-  font-size: 12px;
 }
 
 .journal-info-section {
