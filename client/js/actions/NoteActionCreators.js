@@ -8,5 +8,14 @@ export default {
       text: text,
       journalId: journalId
     })
+
+    let matches = text.match(/^TODO: (.+)/)
+    if (matches) {
+      AppDispatcher.dispatch({
+        type: ActionTypes.CREATE_TODO,
+        text: matches[1],
+        journalId: journalId
+      });
+    }
   }
 };
