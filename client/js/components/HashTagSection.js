@@ -7,12 +7,16 @@ export default class HashTagSection extends React.Component {
     super();
 
     this.state = this._getStateFromStore();
+
+    this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
+    HashTagStore.addChangeListener(this._onChange);
   }
 
   componentWillUnmount() {
+    HashTagStore.removeChangeListener(this._onChange);
   }
 
   render() {

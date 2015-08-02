@@ -5,16 +5,16 @@ import {ActionTypes} from '../constants/AppConstants';
 
 let _hashTags = {
   1: [
-    { id: 1, journalId: 1, text: 'tokyo' }
+    { id: 1, journalId: 1, text: '#tokyo' }
   ],
   2: [
-    { id: 2, journalId: 2, text: 'ruby' }
+    { id: 2, journalId: 2, text: '#ruby' }
   ],
   3: [
-    { id: 3, journalId: 3, text: 'beatles' },
-    { id: 4, journalId: 3, text: 'RubyOnRails' },
-    { id: 5, journalId: 3, text: 'flux' },
-    { id: 6, journalId: 3, text: 'LiverpoolFC' }
+    { id: 3, journalId: 3, text: '#beatles' },
+    { id: 4, journalId: 3, text: '#RubyOnRails' },
+    { id: 5, journalId: 3, text: '#flux' },
+    { id: 6, journalId: 3, text: '#LiverpoolFC' }
   ],
   4: [],
   5: [],
@@ -50,6 +50,10 @@ _HashTagStore.dispatchToken = AppDispatcher.register(function (action) {
     break;
 
   case ActionTypes.CREATE_HASH_TAG:
+    for (let i = 0; i < _hashTags[action.journalId].length; i++) {
+      if (action.text === _hashTags[action.journalId][i].text) { return; }
+    }
+
     let hashTag = {
       id: _nextId++,
       journalId: action.journalId,
