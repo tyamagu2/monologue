@@ -160,6 +160,23 @@ html, body, #app {
   width: 25%;
   border-left: solid 5px #eee;
 
+  .hash-tag-section {
+    list-style: none;
+
+    .hash-tag-header {
+      padding: 10px 0 0 5px;
+    }
+
+    .hash-tag {
+      padding-left: 10px;
+      font-size: 18px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   .todo-section {
     list-style: none;
 

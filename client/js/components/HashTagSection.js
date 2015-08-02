@@ -1,4 +1,6 @@
 import React from 'react';
+import HashTagStore from '../stores/HashTagStore';
+import HashTagListItem from './HashTagListItem';
 
 export default class HashTagSection extends React.Component {
   constructor() {
@@ -16,13 +18,16 @@ export default class HashTagSection extends React.Component {
   render() {
     return (
       <div className="hash-tag-section">
-        HashTag
+        <h3 className="hash-tag-header">Hash Tag</h3>
+        {this.state.hashTags.map(hashTag => <HashTagListItem hashTag={hashTag} />)}
       </div>
     );
   }
 
   _getStateFromStore() {
-    return {};
+    return {
+      hashTags: HashTagStore.getAllForCurrentJournal()
+    };
   }
 
   _onChange() {
