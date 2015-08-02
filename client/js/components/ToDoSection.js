@@ -22,7 +22,10 @@ export default class ToDoSection extends React.Component {
   render() {
     return (
       <div className="todo-section">
-        {this.state.todos.map(todo => <ToDoListItem todo={todo} />)}
+        <h3 className="todo-header">ToDo</h3>
+        <ul>
+          {this.state.todos.map(todo => <ToDoListItem todo={todo} />)}
+        </ul>
       </div>
     );
   }

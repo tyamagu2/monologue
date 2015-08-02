@@ -163,6 +163,10 @@ html, body, #app {
   .todo-section {
     list-style: none;
 
+    .todo-header {
+      padding: 10px 0 0 5px;
+    }
+
     .todo {
       label {
         padding-left: 10px;
