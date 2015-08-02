@@ -1,4 +1,5 @@
 import React from 'react';
+import JournalStore from '../stores/JournalStore';
 import HashTagSection from './HashTagSection'
 import ToDoSection from './ToDoSection'
 
@@ -7,12 +8,16 @@ export default class JournalInfoSection extends React.Component {
     super();
 
     this.state = this._getStateFromStore();
+
+    this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
+    JournalStore.addChangeListener(this._onChange);
   }
 
   componentWillUnmount() {
+    JournalStore.removeChangeListener(this._onChange);
   }
 
   render() {
@@ -25,7 +30,7 @@ export default class JournalInfoSection extends React.Component {
   }
 
   _getStateFromStore() {
-    return {};
+    return { journalId: JournalStore.getCurrentId() };
   }
 
   _onChange() {

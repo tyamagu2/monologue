@@ -1,28 +1,36 @@
 import React from 'react';
+import ToDoStore from '../stores/TodoStore';
+import ToDoListItem from './ToDoListItem';
 
 export default class ToDoSection extends React.Component {
   constructor() {
     super();
 
     this.state = this._getStateFromStore();
+
+    this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
+    ToDoStore.addChangeListener(this._onChange);
   }
 
   componentWillUnmount() {
+    ToDoStore.removeChangeListener(this._onChange);
   }
 
   render() {
     return (
-      <div className="to-do-section">
-        ToDo
+      <div className="todo-section">
+        {this.state.todos.map(todo => <ToDoListItem todo={todo} />)}
       </div>
     );
   }
 
   _getStateFromStore() {
-    return {};
+    return {
+      todos: ToDoStore.getAllForCurrentJournal()
+    };
   }
 
   _onChange() {

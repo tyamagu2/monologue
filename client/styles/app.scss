@@ -5,6 +5,7 @@
 @import "navigation";
 
 $navigation-height: 61px;
+$theme-color: #18ac9c;
 
 * {
   border: 0;
@@ -51,7 +52,7 @@ html, body, #app {
   $journal-section-header-height: 50px;
   $journal-list-color: #505050;
   $journal-list-color-dark: #222;;
-  $active-journal-color: #18ac9c;
+  $active-journal-color: $theme-color;
 
   .journal-section-header {
     position: absolute;
@@ -66,7 +67,7 @@ html, body, #app {
       position: absolute;
       top: 5px;
       right: 10px;
-      background: #18ac9c;
+      background: $theme-color;
     }
   }
 
@@ -157,4 +158,19 @@ html, body, #app {
 
 .journal-info-section {
   width: 25%;
+  border-left: solid 5px #eee;
+
+  .todo-section {
+    list-style: none;
+
+    .todo {
+      label {
+        padding-left: 10px;
+      }
+
+      &:hover {
+        background: $theme-color;
+      }
+    }
+  }
 }
