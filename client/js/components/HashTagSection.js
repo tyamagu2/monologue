@@ -36,5 +36,6 @@ export default class HashTagSection extends React.Component {
 
   _onChange() {
     this.setState(this._getStateFromStore());
+    return false;
   }
 }

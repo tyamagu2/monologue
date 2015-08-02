@@ -1,4 +1,5 @@
 import React from 'react';
+import AppStore from '../stores/AppStore';
 import NoteStore from '../stores/NoteStore';
 import JournalStore from '../stores/JournalStore';
 import NoteListItem from './NoteListItem';
@@ -14,10 +15,12 @@ export default class NoteSection extends React.Component {
   }
 
   componentDidMount() {
+    AppStore.addChangeListener(this._onChange);
     NoteStore.addChangeListener(this._onChange);
   }
 
   componentWillUnmount() {
+    AppStore.removeChangeListener(this._onChange);
     NoteStore.removeChangeListener(this._onChange);
   }
 
@@ -41,7 +44,7 @@ export default class NoteSection extends React.Component {
 
   _getStateFromStore() {
     return {
-      notes: NoteStore.getAllForCurrentJournal(),
+      notes: NoteStore.getAllForCurrentJournalWithCurrentHashTag(),
       journal: JournalStore.getCurrent()
     };
   }
