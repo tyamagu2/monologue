@@ -1,5 +1,5 @@
 import React from 'react';
-import ToDoStore from '../stores/TodoStore';
+import ToDoStore from '../stores/ToDoStore';
 import ToDoListItem from './ToDoListItem';
 
 export default class ToDoSection extends React.Component {
