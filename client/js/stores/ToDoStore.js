@@ -16,16 +16,16 @@ let getCreatedAt = function () {
 
 let _todos = {
   1: [
-    { id: 1, text: 'Try rails 5.0', created_at: getCreatedAt(), done: false }
+    { id: 1, journalId: 1, text: 'Try rails 5.0', created_at: getCreatedAt(), done: false }
   ],
   2: [
-    { id: 2, text: 'Finish deploy script', created_at:  getCreatedAt(), done: false }
+    { id: 2, journalId: 2, text: 'Finish deploy script', created_at:  getCreatedAt(), done: false }
   ],
   3: [
-    { id: 3, text: 'Email to Paul', created_at: getCreatedAt(), done: false },
-    { id: 4, text: 'Call John', created_at: getCreatedAt(), done: true },
-    { id: 5, text: 'Finish css', created_at: getCreatedAt(), done: false },
-    { id: 6, text: 'Deploy', created_at: getCreatedAt(), done: false }
+    { id: 3, journalId: 3, text: 'Email to Paul', created_at: getCreatedAt(), done: false },
+    { id: 4, journalId: 3, text: 'Call John', created_at: getCreatedAt(), done: true },
+    { id: 5, journalId: 3, text: 'Finish css', created_at: getCreatedAt(), done: false },
+    { id: 6, journalId: 3, text: 'Deploy', created_at: getCreatedAt(), done: false }
   ],
   4: [],
   5: [],
@@ -63,11 +63,30 @@ _ToDoStore.dispatchToken = AppDispatcher.register(function (action) {
   case ActionTypes.CREATE_TODO:
     let todo = {
       id: _nextId++,
+      journalId: action.journalId,
       text: action.text,
       created_at: getCreatedAt(),
       done: false
     }
     _todos[action.journalId].push(todo)
+    break;
+
+  case ActionTypes.COMPLETE_TODO:
+    for (let i = 0; i < _todos[action.journalId].length; i++) {
+      if (_todos[action.journalId][i].id == action.todoId) {
+        _todos[action.journalId][i].done = true;
+        break;
+      }
+    }
+    break;
+
+  case ActionTypes.UNDO_TODO:
+    for (let i = 0; i < _todos[action.journalId].length; i++) {
+      if (_todos[action.journalId][i].id == action.todoId) {
+        _todos[action.journalId][i].done = false;
+        break;
+      }
+    }
     break;
 
   default:
