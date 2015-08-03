@@ -32,8 +32,8 @@ export default class NoteSection extends React.Component {
     return (
       <div className="note-section">
         <div className="note-section-header">{this.state.journal.title}</div>
-        <div className="note-list-wrapper scroll-box">
-          <ul className="note-list" ref="noteList">
+        <div className="note-list-wrapper scroll-box" ref="noteListWrapper">
+          <ul className="note-list">
             {this.state.notes.map(note => (<NoteListItem key={note.id} note={note} />))}
           </ul>
         </div>
@@ -50,8 +50,8 @@ export default class NoteSection extends React.Component {
   }
 
   _scrollToBottom() {
-    let list = this.refs.noteList.getDOMNode();
-    list.scrollTop = list.scrollHeight;
+    let noteListWrapper = React.findDOMNode(this.refs.noteListWrapper);
+    noteListWrapper.scrollTop = noteListWrapper.scrollHeight;
   }
 
   _onChange() {
