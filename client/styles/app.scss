@@ -138,6 +138,7 @@ html, body, #app {
 
     .note-text {
       display: inline-block;
+      overflow-wrap: break-word;
       width: 92%;
     }
   }
