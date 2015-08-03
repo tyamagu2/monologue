@@ -16,7 +16,7 @@ var config = {
       minifier: false
     },
     plumber: {
-      errorHandler: notify.onError("Error: <%= error.message %>")
+      errorHandler: notify.onError('Error: <%= error.message %>')
     },
     webpack: {
       output: {
@@ -46,16 +46,16 @@ gulp.task('js', function() {
     .pipe(cached('js'))
     .pipe(plumber(config.options.plumber))
     .pipe(webpack(config.options.webpack))
-    .pipe(gulp.dest(config.dest.js))
+    .pipe(gulp.dest(config.dest.js));
 });
 
 gulp.task('styles', function() {
- gulp.src('./styles/**/*.scss')
+  gulp.src('./styles/**/*.scss')
     .pipe(cached('styles'))
     .pipe(plumber(config.options.plumber))
     .pipe(sass())
     .pipe(please(config.options.please))
-    .pipe(gulp.dest(config.dest.styles))
+    .pipe(gulp.dest(config.dest.styles));
 });
 
 gulp.task('watch', ['js', 'styles'], function() {
