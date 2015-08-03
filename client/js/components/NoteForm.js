@@ -31,7 +31,7 @@ export default class NoteForm extends React.Component {
   _onKeyDown(e) {
     if (e.keyCode !== ENTER_KEY_CODE) { return; }
 
-    event.preventDefault();
+    e.preventDefault();
 
     let text = this.state.text.trim();
 
