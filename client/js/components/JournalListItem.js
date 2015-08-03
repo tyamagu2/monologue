@@ -1,5 +1,5 @@
 import React from 'react';
-import cx from 'react/lib/cx';
+import classNames from 'classnames';
 import JournalActionCreators from '../actions/JournalActionCreators';
 
 export default class JournalListItem extends React.Component {
@@ -12,7 +12,7 @@ export default class JournalListItem extends React.Component {
 
     return (
       <li
-        className={cx({
+        className={classNames({
           'journal': true,
           'active': journal.id === this.props.currentJournalId
         })}
