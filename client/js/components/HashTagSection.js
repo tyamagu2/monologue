@@ -23,7 +23,7 @@ export default class HashTagSection extends React.Component {
     return (
       <div className="hash-tag-section">
         <h3 className="hash-tag-header">Hash Tag</h3>
-        {this.state.hashTags.map(hashTag => <HashTagListItem hashTag={hashTag} />)}
+        {this.state.hashTags.map(hashTag => <HashTagListItem hashTag={hashTag} key={hashTag.id}/>)}
       </div>
     );
   }

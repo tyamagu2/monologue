@@ -24,7 +24,7 @@ export default class ToDoSection extends React.Component {
       <div className="todo-section">
         <h3 className="todo-header">ToDo</h3>
         <ul>
-          {this.state.todos.map(todo => <ToDoListItem todo={todo} />)}
+          {this.state.todos.map(todo => <ToDoListItem todo={todo} key={todo.id} />)}
         </ul>
       </div>
     );
